@@ -1,0 +1,10 @@
+/**
+ * 
+ */
+/**
+ * @author TheProgrammer
+ *
+ */
+module com.TheProgrammer.hellojavafx {
+	exports com.TheProgrammer.helloWorld;
+}

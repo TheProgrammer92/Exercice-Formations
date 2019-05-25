@@ -1,0 +1,89 @@
+package com.TheProgrammer.coureursdejupons;
+
+import javafx.application.Application;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
+import javafx.geometry.Insets;
+import javafx.geometry.Pos;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.control.ContentDisplay;
+import javafx.scene.control.Label;
+import javafx.scene.image.ImageView;
+import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
+
+public class MainApp extends Application {
+
+
+	private int totalGirlFriendsCount = 3;
+	private Label statusLabel;
+	private Button addGirlFriendButton;
+	private Button removeGirlFriendButton;
+
+	public void start(Stage primaryStage) throws Exception {
+		
+		// TODO Auto-generated method stub
+		VBox root = new VBox(10);
+		root.setPadding(new Insets(25));
+		root.setAlignment(Pos.CENTER);
+		
+		ImageView likeImageView = new ImageView(getClass().getResource("/resources/images/like.png").toString());
+		ImageView dislikeImageView = new ImageView(getClass().getResource("/resources/images/dislike.png").toString());
+		ImageView likeOver = new ImageView(getClass().getResource("/resources/images/dislike_red.png").toString());
+		ImageView dislikeOver = new ImageView(getClass().getResource("/resources/images/dislike_hover.png").toString());
+		
+		statusLabel = new Label("Nombre de copines actuel : 3");
+		 addGirlFriendButton = new Button("j'ai une nouvelle copine");
+		addGirlFriendButton.setGraphic(likeImageView);
+		addGirlFriendButton.setContentDisplay(ContentDisplay.TOP);
+		
+		addGirlFriendButton.setOnMouseEntered(e -> {
+			addGirlFriendButton.setGraphic(likeOver);
+		});
+		
+		addGirlFriendButton.setOnMouseExited(e-> {
+			
+			addGirlFriendButton.setGraphic(dislikeOver);
+		});
+		addGirlFriendButton.setOnAction(e -> {
+			
+		
+				
+			 totalGirlFriendsCount++;
+			updateStatusLabel(totalGirlFriendsCount);
+				
+				
+
+		});
+		removeGirlFriendButton = new Button("j'ai perdu une copine");
+		removeGirlFriendButton.setGraphic(dislikeImageView);
+		removeGirlFriendButton.setContentDisplay(ContentDisplay.TOP);
+		removeGirlFriendButton.setOnAction((e)-> {
+
+				if (totalGirlFriendsCount>0) {
+			
+					totalGirlFriendsCount--;
+					updateStatusLabel(totalGirlFriendsCount);
+
+				}
+		});
+		
+		root.getChildren().addAll(statusLabel, addGirlFriendButton, removeGirlFriendButton);
+		
+		
+		Scene scene = new Scene(root,300,200);
+		
+		primaryStage.setScene(scene);
+		primaryStage.show();
+		
+	}
+	
+	private  void updateStatusLabel(int newGirlFriendsTotal) {
+		
+		statusLabel.setText("Nombre de copines actuel : " + newGirlFriendsTotal);
+
+		
+	}
+
+}

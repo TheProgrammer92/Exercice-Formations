@@ -1,0 +1,54 @@
+package com.TheProgrammer.helloWorld;
+
+import javafx.application.Application;
+import javafx.application.Platform;
+import javafx.stage.Stage;
+
+public class HelloWorld extends Application{
+		
+
+	@Override
+	public void start(Stage primaryStage) throws Exception {
+		// TODO Auto-generated method stub
+		
+		primaryStage.setTitle("Hello TheProgrammer");
+		primaryStage.setWidth(600);
+		primaryStage.setHeight(500);
+		
+		primaryStage.show();
+		primaryStage.centerOnScreen();
+		
+		
+		
+		Stage otherStage = new Stage();
+		otherStage.setTitle("I love java fx");
+		otherStage.setWidth(300);
+		otherStage.setHeight(400);
+		otherStage.show();
+		otherStage.centerOnScreen();
+		
+		
+
+		new Thread(new Runnable() {
+			
+			@Override
+			public void run() {
+			// TODO Auto-generated method stub
+				
+				Platform.runLater(() ->  {
+					
+					otherStage.hide();
+				});
+				
+			}
+		}).start();
+		
+		
+	
+	
+
+		
+		
+		
+	}
+}

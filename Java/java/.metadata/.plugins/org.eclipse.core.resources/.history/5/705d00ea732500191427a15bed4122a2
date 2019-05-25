@@ -1,0 +1,6 @@
+package com.TheProgrammer.coureursdejupons;
+import javafx.application.Application;
+
+public class MainApp extends Application{
+
+}

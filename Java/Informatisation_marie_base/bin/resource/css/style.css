@@ -1,0 +1,49 @@
+
+
+.rootPane {
+	
+	
+	-fx-background-image:url('../../../resource/image/image1.jpg');
+	-fx-background-position:center;
+	-fx-background-size:cover;
+	
+}
+
+.circle {
+	
+	-fx-border-color: white;
+
+	-fx-graphic: url('../../../resource/image/profil.jpg');
+	-fx-fill:transparent;
+	-fx-stroke-width: 5;
+	-fx-stroke:white;
+	-fx-background-color:white;
+}
+.label-title {
+	-fx-text-fill:white;
+	-fx-font-size: 30px;
+}
+.editText {
+	
+	-fx-border-color:transparent transparent white transparent;
+	-fx-fill:white;
+	-fx-font-size: 18px;
+	
+	-fx-text-fill: WHITE;
+	-fx-prompt-text-fill:#C9D1C9;
+}
+
+.jfx-chip-view .jfx-chip .close-button .jfx-rippler {
+    -jfx-rippler-fill: white;
+}
+
+
+
+.buttonSubmit {
+	
+	-fx-background-color:#F53B12;
+	-fx-padding:10px 0px 10px 0px;
+	-fx-font-size:20px;
+	-fx-text-fill: WHITE;
+	
+}

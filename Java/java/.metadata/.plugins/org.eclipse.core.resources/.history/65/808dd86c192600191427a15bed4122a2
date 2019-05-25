@@ -1,0 +1,34 @@
+package com.TheProgrammer.CoureursDeJuponsV2;
+
+import javafx.application.Application;
+import javafx.beans.binding.NumberBinding;
+import javafx.beans.property.SimpleIntegerProperty;
+import javafx.stage.Stage;
+
+public class MainApp extends Application {
+
+	@Override
+	public void start(Stage primaryStage) throws Exception {
+		
+		SimpleIntegerProperty firstNumber = new SimpleIntegerProperty(5);
+		SimpleIntegerProperty secondNumber = new SimpleIntegerProperty(8);
+	
+		
+		NumberBinding sum = firstNumber.add(secondNumber);
+		
+		
+		System.out.println(sum.getValue());
+		
+		secondNumber.setValue(14);
+		
+		
+	
+		
+		
+		System.out.println(sum.getValue());
+		
+		
+		
+	}
+
+}

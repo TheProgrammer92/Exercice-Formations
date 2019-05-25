@@ -1,0 +1,96 @@
+package com.TheProgrammer.coureursdejupons;
+
+import javafx.application.Application;
+import javafx.geometry.Insets;
+import javafx.geometry.Pos;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.control.ContentDisplay;
+import javafx.scene.control.Label;
+import javafx.scene.image.ImageView;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
+import javafx.scene.text.Font;
+import javafx.stage.Stage;
+
+public class MainApp extends Application {
+
+
+	private int totalGirlFriendsCount = 3;
+	private Label statusLabel;
+	private Button addGirlFriendButton;
+	private Button removeGirlFriendButton;
+
+	public void start(Stage primaryStage) throws Exception {
+		
+		// TODO Auto-generated method stub
+		VBox root = new VBox(10);
+		root.setPadding(new Insets(25));
+		root.setAlignment(Pos.CENTER);
+		
+		Font font = Font.font("Avenir",16);
+		
+	
+		
+		statusLabel = new Label();
+		statusLabel.setFont(font);
+		 
+		 updateStatusLabel(totalGirlFriendsCount);
+		 addGirlFriendButton = new Button("Add Girlfriend".toUpperCase());
+		 addGirlFriendButton.setFont(font);
+
+	
+		addGirlFriendButton.setOnAction(e -> {
+			
+		
+				
+			 totalGirlFriendsCount++;
+			updateStatusLabel(totalGirlFriendsCount);
+				
+				
+
+		});
+		removeGirlFriendButton = new Button("remove Girlfriend".toUpperCase());
+		removeGirlFriendButton.setFont(font);
+
+		
+		
+	
+		removeGirlFriendButton.setOnAction((e)-> {
+
+				if (totalGirlFriendsCount>0) {
+			
+					totalGirlFriendsCount--;
+					updateStatusLabel(totalGirlFriendsCount);
+
+				}
+		});
+		HBox hbox  = new HBox();
+		hbox.getChildren().addAll(addGirlFriendButton, removeGirlFriendButton);
+		hbox.setPadding(new Insets(10));
+		root.getChildren().addAll(statusLabel,hbox);
+		
+		
+		Scene scene = new Scene(root,300,200);
+		
+		
+		primaryStage.setScene(scene);
+		primaryStage.setResizable(false);
+		primaryStage.show();
+		
+	}
+	
+	private  void updateStatusLabel(int newGirlFriendsTotal) {
+		
+		statusLabel.setText("You have " + newGirlFriendsTotal+ " girlfriends currently");
+
+		
+	}
+	
+	
+	public static void main(String[] args) {
+		
+		launch(args);
+	}
+
+}

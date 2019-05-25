@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name" translatable="false">MegaGame</string>
+    <string name="lblTitle" translatable="false">Entrer une valeur entre 1 et 100</string>
+    <string name="strResult" translatable="false">Felicitation , vous avez trouvé en %d coups</string>
+    <string name="strSuperieur" translatable="false">Veuillez saisir une valeur inferieur</string>
+    <string name="strInferieur" translatable="false">Veuillez saisir une valeur superieur</string>
+</resources>

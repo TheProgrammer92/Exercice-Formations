@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">MegaGame</string>
+    <string name="lblTitle" translatable="false">Enter a value between 1 and 100</string>
+    <string name="strResult" translatable="false">Congratulation, you hava find  %d</string>
+    <string name="strSuperieur" translatable="false">"You need to enter a lower value "</string>
+    <string name="strInferieur" translatable="false">you need yo enter a greater value</string>
+</resources>

@@ -1,0 +1,11 @@
+/**
+ * 
+ */
+/**
+ * @author TheProgrammer
+ *
+ */
+module com.TheProgrammer.helloworld {
+	
+	requires java.base;
+}

@@ -1,0 +1,56 @@
+
+body{
+    margin:0;
+    line-height: 1.6;
+    letter-spacing: 0.2px;
+    font-family: "Comic Sans MS","Helvetica","sans-serif"
+}
+.header{
+
+    background:grey;
+    padding:20px;
+    color:white;
+    font-size: 14px;
+
+}
+.header-title{
+
+    margin-top:0;
+}
+
+.header-nav{
+    margin:20px 0;
+    text-align: center;
+}
+.header-nav a{
+    padding:0 10px ;
+    color:inherit;
+}
+.footer{
+    width:100%;
+    background:grey;
+}
+
+.main{
+
+    background:lightgrey;
+    padding:20px;
+}
+
+.main p {
+
+    text-align: center;
+}
+
+.header img{
+
+    width: 100%;
+}
+
+.button{
+
+    color:#fff;
+    background:#5434cf;
+    text-decoration:none;
+    font-size: 30px;
+}

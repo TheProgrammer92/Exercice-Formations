@@ -1,0 +1,11 @@
+# depslib dependency file v1.0
+1525020039 source:d:\mes formation\le c\listechaine\main.c
+	<stdio.h>
+	<stdlib.h>
+	"listeChainee.h"
+	"Pile.h"
+
+1525020156 d:\mes formation\le c\listechaine\listechainee.h
+
+1525020156 d:\mes formation\le c\listechaine\pile.h
+

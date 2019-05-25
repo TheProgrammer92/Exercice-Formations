@@ -1,0 +1,12 @@
+/**
+ * 
+ */
+/**
+ * @author TheProgrammer
+ *
+ */
+module com.TheProgrammer.TheProgrammerPro {
+	
+	
+	requires javafx.controls;
+}

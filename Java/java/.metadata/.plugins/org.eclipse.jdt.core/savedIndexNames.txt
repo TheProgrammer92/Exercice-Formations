@@ -1,0 +1,13 @@
+INDEX VERSION 1.131+Z:\MES FORMATION\Java\java\.metadata\.plugins\org.eclipse.jdt.core
+2931106736.index
+4000225259.index
+23049544.index
+3996102163.index
+1249815465.index
+1190943014.index
+3774267796.index
+146701780.index
+3659618058.index
+908056332.index
+1435030442.index
+1197513862.index

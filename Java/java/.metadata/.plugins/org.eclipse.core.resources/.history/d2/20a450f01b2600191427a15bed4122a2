@@ -1,0 +1,32 @@
+package com.TheProgrammer.CoureursDeJuponsV2;
+
+import javafx.application.Application;
+import javafx.scene.Scene;
+import javafx.scene.control.*;
+import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
+
+public class MainApp extends Application {
+
+	@Override
+	public void start(Stage primaryStage) throws Exception {
+		
+		VBox root = new VBox(10);
+		
+		Label label = new Label("hello world");
+		TextField textField = new TextField("toto"); 
+		
+		
+		root.getChildren().addAll(label , textField);
+		Scene scene= new Scene(root);
+		
+		primaryStage.setTitle("CoureursDeJupons V2");
+		
+		primaryStage.setScene(scene);
+		primaryStage.centerOnScreen();
+		primaryStage.show();
+
+		
+	}
+
+}

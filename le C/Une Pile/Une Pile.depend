@@ -1,0 +1,8 @@
+# depslib dependency file v1.0
+1525232744 source:d:\mes formation\le c\une pile\main.c
+	<stdio.h>
+	<stdlib.h>
+	"Pile.h"
+
+1525020156 d:\mes formation\le c\une pile\pile.h
+

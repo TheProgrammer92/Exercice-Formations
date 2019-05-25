@@ -1,0 +1,121 @@
+*{
+
+    box-sizing: border-box;
+}
+
+body{
+    font-size: 16px;
+    font-family: "Montserat", sans-serif;
+    color:rgba(0,0,0,.87);
+    line-height: 30px;
+    margin:0;
+    background:#ccc;
+}
+.topbar{
+    position: fixed;
+    top:0;
+    left:0;
+    right: 0;
+    width: 100%;
+    background:#fff;
+}
+
+.topbar nav{
+
+    float: left;
+}
+
+
+ .social{
+
+    float:right;
+}
+.social a:hover{
+
+    padding: 0 12px;
+    opacity: .5;
+}
+.social a{
+
+    padding: 0 12px;
+    opacity: .1;
+}
+.social a:hover{
+    opacity: 1;
+}
+.topbar nav a{
+    color:#9F9F9F;
+    text-decoration: none;
+    font-weight: 500;
+    margin:0 53px;
+
+}
+
+.topbar nav a:hover, .topbar nav a.active{
+    color:#000;
+}
+
+.banniere {
+
+
+    height:427px;
+   background : no-repeat center center / cover url(img/image.jpg);
+}
+
+.main{
+
+    float: left;
+    background:#fff;
+    width: calc(100% - 375px);
+    box-shadow: 0 4px 30px rgba(0,0,0,.05);
+    position:relative;
+    z-index: 2;
+}
+
+.sidebar{
+    float: right;
+    height: 200px;
+    position:relative;
+    background-color:#ccc;
+    width: 375px;
+    padding:40px;
+    z-index: 1;
+}
+.sidebar-title{
+
+    font-size: 30px;
+    color:#000000;
+    margin: 15px 0;
+}
+.sidebar-title:first-child{
+    margin-top: 0;
+}
+.sidebar a{
+
+    color:#9F9F9F;
+    text-decoration: none;
+}
+.sidebar ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+
+}
+
+.sidebar li{
+    paddding: 6px 0;
+}
+.sidebar a:hover{
+    text-decoration: underline;
+}
+
+.sidebar hr{
+    border:none;
+    background:#c4c4c4;
+    height: 1px;
+    margin: 50px 0;
+}
+
+footer{
+    clear: both;
+}

@@ -1,0 +1,12 @@
+/**
+ * 
+ */
+/**
+ * @author TheProgrammer
+ *
+ */
+module com.TheProgrammer.coureurDeJupons {
+	
+	 exports com.TheProgrammer.coureursdejupons;
+	requires javafx.graphics;
+}

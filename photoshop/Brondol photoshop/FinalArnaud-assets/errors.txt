@@ -1,0 +1,2 @@
+[2018-09-22 16:26:16] layer "+237 691464996": Expected Either a default asset specification or a layer asset specification but "+" found.
+[2018-09-22 16:26:16] layer "arnaudtoum@gmail.com": Unsupported extension: com

@@ -1,0 +1,11 @@
+/**
+ * 
+ */
+/**
+ * @author TheProgrammer
+ *
+ */
+module CoureursDeJupons {
+	
+	requires javafx.graphics;
+}

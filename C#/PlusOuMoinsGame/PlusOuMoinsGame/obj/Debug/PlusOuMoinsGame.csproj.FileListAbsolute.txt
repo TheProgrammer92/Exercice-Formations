@@ -1,0 +1,7 @@
+Z:\MES FORMATION\C#\PlusOuMoinsGame\PlusOuMoinsGame\bin\Debug\PlusOuMoinsGame.exe.config
+Z:\MES FORMATION\C#\PlusOuMoinsGame\PlusOuMoinsGame\bin\Debug\PlusOuMoinsGame.exe
+Z:\MES FORMATION\C#\PlusOuMoinsGame\PlusOuMoinsGame\bin\Debug\PlusOuMoinsGame.pdb
+Z:\MES FORMATION\C#\PlusOuMoinsGame\PlusOuMoinsGame\obj\Debug\PlusOuMoinsGame.csprojAssemblyReference.cache
+Z:\MES FORMATION\C#\PlusOuMoinsGame\PlusOuMoinsGame\obj\Debug\PlusOuMoinsGame.csproj.CoreCompileInputs.cache
+Z:\MES FORMATION\C#\PlusOuMoinsGame\PlusOuMoinsGame\obj\Debug\PlusOuMoinsGame.exe
+Z:\MES FORMATION\C#\PlusOuMoinsGame\PlusOuMoinsGame\obj\Debug\PlusOuMoinsGame.pdb
