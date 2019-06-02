@@ -46,7 +46,7 @@ DELIMITER $$
    
      if (montant < 100000)  then
        select concat('Commmande Normale  :=  ' , montant);
-	else 
+   	else 
       
        select concat('Commmande Speciale !!    :=  ' , montant);
    
