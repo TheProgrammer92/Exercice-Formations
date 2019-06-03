@@ -1,4 +1,3 @@
-call calcul_commande_10(11);
 
 
 DELIMITER $$
@@ -23,8 +22,9 @@ DELIMITER ;
 DELIMITER $$
    
 
-   drop procedure if exists calcul_commande_10;
-   create procedure calcul_commande_10(in numArts integer)
+
+	drop procedure if exists calcul_commande_10;
+	create procedure calcul_commande_10(in numArts integer)
 
    begin
    declare montant_cmd_10 int;
@@ -46,18 +46,22 @@ DELIMITER $$
    
      if (montant < 100000)  then
        select concat('Commmande Normale  :=  ' , montant);
+<<<<<<< HEAD:SQL/Td 2 my correction/TD 2 Mouafo/Part 1/Exercice 1/Prodecure_calcul_commande.sql
    	else 
+=======
+	 else 
+>>>>>>> f3086f90e034182e656515e1bb59f4b781d3eb87:SQL/ICT 210 Mouafo/TD 2 Mouafo/Part 1/Exercice 1/Prodecure_calcul_commande.sql
       
        select concat('Commmande Speciale !!    :=  ' , montant);
    
- 
+    end if;
    end $$
 
 DELIMITER ;
 
 
 call recup_numArt(@resultat);
-call calcul_commande_10((@resultat+1));
+call calcul_commande_10((@resultat));
 
 
 

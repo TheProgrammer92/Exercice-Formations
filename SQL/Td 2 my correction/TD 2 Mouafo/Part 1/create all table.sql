@@ -1,9 +1,9 @@
-drop table LigneCommande;
-drop table article;
-drop table commande;
+drop table if exists LigneCommande;
+drop table if exists article;
+drop table if exists commande;
 
 
-create table Article (NumArt integer not null primary key,
+create table Article (NumArt integer not null primary key auto_increment,
 DesArt varchar(55) not null,
 PuArt integer  not null,
 QteEnStock integer not null,
