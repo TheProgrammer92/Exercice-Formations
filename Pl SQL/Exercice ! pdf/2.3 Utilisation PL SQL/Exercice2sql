@@ -1,0 +1,18 @@
+clear screen;
+truncate table personnel;
+--recuperation du client, de clé, primaire le plus elevé
+set serveroutput on;
+declare 
+
+   maxNum int; 
+   maxName varchar(55);
+   maxPrenom varchar(66);
+begin
+   
+-- recuperation du max numero
+  select max(numero_cli)into maxNum from clients;
+   select nom  into maxName  from clients where numero_cli = maxNum;
+  select prenom into maxPrenom from clients where numero_cli = maxNum;
+   
+  insert into personnel  values(numpers,'kk', '','kds','kk');
+end ;

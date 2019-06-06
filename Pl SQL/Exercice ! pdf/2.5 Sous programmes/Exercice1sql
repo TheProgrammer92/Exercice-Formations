@@ -1,0 +1,10 @@
+clear screen;
+drop procedure  fonction_recursive;
+set serveroutput on;
+create or replace procedure fonction_recursive(n number) as
+
+begin
+    dbms_output.put_line('je suis lancé' || n);
+end;
+
+fonction_recursive (22);

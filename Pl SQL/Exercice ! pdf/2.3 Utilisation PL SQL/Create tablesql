@@ -1,0 +1,120 @@
+DROP TABLE operation ;
+DROP TABLE typeoperation;
+DROP TABLE COMPTECLIENT;
+DROP TABLE typeccl;
+DROP TABLE personnel;
+DROP TABLE CLIENT ;
+CREATE TABLE CLIENT
+( numcli number,
+nomcli varchar2 ( 3  ) ,
+prenomcli varchar2 ( 30 ) ,
+adresse varchar2 ( 60 ) ,
+tel varchar (10 )
+) ;
+CREATE TABLE PERSONNEL
+( numpers number,
+nompers varchar2 ( 30 ) ,
+prenompers varchar2 ( 30 ) ,
+manager number,
+salaire number
+) ;
+CREATE TABLE TYPECCL
+( numtypeccl number,
+nomtypeccl varchar2 (30 )
+) ;
+CREATE TABLE COMPTECLIENT
+( numcli number,
+numccl number,
+numtypeccl number,
+dateccl date default sysdate not null ,
+numpers number
+) ;
+CREATE TABLE T Y P E O P E R A T I O N
+( n u m t y p e o p e r number,
+n o m t y p e o p e r varchar2 (30 )
+) ;
+CREATE TABLE O P E R A T I O N
+( numcli number,
+numccl number,
+n u m o p e r number,
+n u m t y p e o p e r number,
+d a t e o p e r da te default s y s d a t e not null ,
+m o n t a n t o p e r number not null ,
+l i b e l o p e r varchar2 (30 )
+) ;
+ALTER TABLE CLIENT ADD
+(
+CONSTRAINT p k _ c l i e n t PRIMARY KEY ( numcli ) ,
+CONSTRAINT c k _ t e l e p h o n e CHECK( LENGTH ( tel )=10)
+) ;
+ALTER TABLE P E R S O N N E L ADD
+(
+CONSTRAINT p k _ p e r s o n n e l PRIMARY KEY ( n u m p e r s ) ,
+CONSTRAINT c k _ s a l a i r e CHECK( S A L A I R E >= 1254.28 )
+) ;
+ALTER TABLE T Y P E C C L ADD
+CONSTRAINT p k _ t y p e c c l PRIMARY KEY ( n u m t y p e c c l ) ;
+ALTER TABLE T Y P E O P E R A T I O N ADD
+CONSTRAINT p k _ t y p e o p e r a t i o n PRIMARY KEY ( n u m t y p e o p e r ) ;
+ALTER TABLE C O M P T E C L I E N T ADD
+(
+CONSTRAINT p k _ c o m p t e c l i e n t
+PRIMARY KEY ( numcli , numccl ) ,
+CONSTRAINT f k _ c c l _ t y p e c c l
+FOREIGN KEY ( n u m t y p e c c l )
+R E F E R E N C E S T Y P E C C L ( n u m t y p e c c l ) ,
+CONSTRAINT f k _ c c l _ c l i e n t
+FOREIGN KEY ( numcli )
+R E F E R E N C E S CLIENT ( numcli ) ,
+CONSTRAINT f k _ c c l _ p e r s o n n e l
+FOREIGN KEY ( n u m p e r s )
+R E F E R E N C E S P E R S O N N E L ( n u m p e r s )
+) ;
+ALTER TABLE O P E R A T I O N ADD
+(
+72CONSTRAINT p k _ o p e r a t i o n
+PRIMARY KEY ( numcli , numccl , n u m o p e r ) ,
+CONSTRAINT f k _ o p e r _ c c l
+FOREIGN KEY ( numcli , n u m o p e r )
+R E F E R E N C E S C O M P T E C L I E N T ( numcli , numccl ) ,
+CONSTRAINT f k _ o p e r _ c o d e o p e r
+FOREIGN KEY ( n u m t y p e o p e r )
+R E F E R E N C E S t y p e o p e r a t i o n ( n u m t y p e o p e r ) ,
+CONSTRAINT m o n t a n t _ o p e r a t i o n
+CHECK( m o n t a n t o p e r <> 0 )
+) ;
+INSERT INTO T Y P E C C L VALUES (
+(SELECT nvl (MAX( n u m t y p e c c l ) , 0 ) + 1
+FROM T Y P E C C L
+) ,
+’ Compte courant ’ ) ;
+INSERT INTO T Y P E C C L VALUES (
+(SELECT nvl (MAX( n u m t y p e c c l ) , 0 ) + 1
+FROM T Y P E C C L
+) ,
+’ l i v r e t ’ ) ;
+INSERT INTO T Y P E C C L VALUES (
+(SELECT nvl (MAX( n u m t y p e c c l ) , 0 ) + 1
+FROM T Y P E C C L
+) ,
+’PEL ’ ) ;
+INSERT INTO T Y P E O P E R A T I O N VALUES (
+(SELECT nvl (MAX( n u m t y p e o p e r ) , 0 ) + 1
+FROM T Y P E O P E R A T I O N
+) ,
+’dA~ c pA´t ~ espA¨ces ~ ’ ) ;
+INSERT INTO T Y P E O P E R A T I O N VALUES (
+(SELECT nvl (MAX( n u m t y p e o p e r ) , 0 ) + 1
+FROM T Y P E O P E R A T I O N
+) ,
+’ prA~ c lA¨vement ~ ’ ) ;
+INSERT INTO T Y P E O P E R A T I O N VALUES (
+(SELECT nvl (MAX( n u m t y p e o p e r ) , 0 ) + 1
+FROM T Y P E O P E R A T I O N
+) ,
+’ virement ’ ) ;
+INSERT INTO T Y P E O P E R A T I O N VALUES (
+(SELECT nvl (MAX( n u m t y p e o p e r ) , 0 ) + 1
+FROM T Y P E O P E R A T I O N
+) ,
+’ r e t r a i t ’ ) ;
