@@ -5,10 +5,12 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.widget.ToggleButton;
 
 import com.theprogrammer.td3ict202.outils.MyAsyncTask;
 
@@ -18,7 +20,7 @@ import java.util.TimerTask;
 public class MainActivity extends AppCompatActivity {
 
     Intent intent;
-    MyAsyncTask myTask  = new MyAsyncTask();
+    MyAsyncTask myTask;
 
 
     RadioGroup rdG;
@@ -27,25 +29,27 @@ public class MainActivity extends AppCompatActivity {
     TextView txtAlert;
     TextView txtResult;
 
+    ToggleButton toggleBtn;
 
-// schedule timer
+  // schedule timer
+
+  @Override
+  protected void onCreate(Bundle savedInstanceState) {
+    super.onCreate(savedInstanceState);
+    setContentView(R.layout.activity_main);
+    intent = new Intent(MainActivity.this, MainService.class);
+    Log.d("MainActivity", "Création de l'activité");
+    // initialize componnents
+    init();
+    MyAsyncTask myTask = new MyAsyncTask();
+    myTask.execute();
+
+    toggleBtn = findViewById(R.id.toggleButton);
+
+    toggleBtn.setOnCheckedChangeListener(onCheckListener);
 
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        intent = new Intent(MainActivity.this, MainService.class);
-        Log.d("MainActivity", "Création de l'activité");
-        //initialize componnents
-        init();
-        myTask.execute();
-
-        rdG = findViewById(R.id.rdG);
-        rdG.setOnCheckedChangeListener(onCheckListener);
-
-
-    }
+        }
 
     private void init() {
 
@@ -54,27 +58,21 @@ public class MainActivity extends AppCompatActivity {
         txtResult  = findViewById(R.id.txtResult);
     }
 
-    RadioGroup.OnCheckedChangeListener onCheckListener;
 
-    {
-        onCheckListener = new RadioGroup.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(RadioGroup group, int checkedId) {
-                RadioButton rb = (RadioButton) findViewById(checkedId);
+    ToggleButton.OnCheckedChangeListener onCheckListener = new CompoundButton.OnCheckedChangeListener() {
+        @Override
+        public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+            if (isChecked) {
+                txtStatus.setText("En Cours");
+                startService(intent);
 
-                if (rb == (RadioButton) findViewById(R.id.rdOn)) {
-                    txtStatus.setText("En Cours");
-                    startService(intent);
-
-                } else if (rb == (RadioButton) findViewById(R.id.rdOff)) {
-                    txtStatus.setText("Arrété");
-                    stopService(intent);
-
-                }
             }
-
-        };
-    }
+             else {
+                txtStatus.setText("Arreté");
+                stopService(intent);
+            }
+        }
+    };
 
 
     @Override
