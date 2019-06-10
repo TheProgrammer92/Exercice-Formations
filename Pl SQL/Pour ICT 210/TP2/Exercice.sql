@@ -62,13 +62,10 @@ declare
 begin
 
 --    insertion dans la table emp2 
-    FOR j IN 1..20 LOOP
-    
-        insert into DEPT values (j , CONCAT( 'departement ',j),concat('loc ',j+1));
-        insert into emp2 values (j, 'jesbe','franc',22,SYSDATE, DBMS_RANDOM.VALUE(500,5000), 22,j);
+ 
+     proc_insert_table_emp2();
      
-        
-     END LOOP;
+     
      minHightSalary := 2000;
      
      select count(*) into nbrHightSalary from emp2 where sal >minHightSalary;
