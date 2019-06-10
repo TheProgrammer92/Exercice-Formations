@@ -22,10 +22,10 @@ public class MainService extends Service {
             // ...
 
             Log.d("*****************"," TimeTask Log :  Salut, TheProgrammer My Time est lancé");
-        }
+
 
         };
-
+};
 
     public MainService() {
     }
@@ -33,7 +33,12 @@ public class MainService extends Service {
     @Override
     public void onCreate() {
 
-        timer.schedule(myTimerTask, 3000);
+
+        try {
+            myTimerTask.wait(3000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         myTimerTask.run();
         Toast.makeText(this, "Service start", Toast.LENGTH_SHORT).show();
     }

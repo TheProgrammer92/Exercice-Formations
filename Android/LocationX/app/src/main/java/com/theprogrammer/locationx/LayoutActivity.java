@@ -68,9 +68,7 @@ public class LayoutActivity extends AppCompatActivity implements LocationListene
         // verification si les location manager sont actif
         // on s'abonne aux different fournisseur de localisation
         if (lm.isProviderEnabled(LocationManager.GPS_PROVIDER)) {
-
-
-            lm.requestLocationUpdates(LocationManager.GPS_PROVIDER, 10000, 0, this);
+  lm.requestLocationUpdates(LocationManager.GPS_PROVIDER, 10000, 0, this);
         }
         if (lm.isProviderEnabled(LocationManager.PASSIVE_PROVIDER)) {
 
