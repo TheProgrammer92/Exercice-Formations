@@ -4,6 +4,7 @@ import android.app.Service;
 import android.content.Intent;
 import android.os.IBinder;
 import android.util.Log;
+import android.widget.Toast;
 
 import java.util.Timer;
 import java.util.TimerTask;
@@ -33,6 +34,7 @@ public class MainService extends Service {
     public void onCreate() {
 
         timer.schedule(myTimerTask, 3000);
+        Toast.makeText(this, "Service start", Toast.LENGTH_SHORT).show();
     }
 
     @Override
@@ -48,6 +50,7 @@ public class MainService extends Service {
 
     @Override
     public void onDestroy() {
+        Toast.makeText(this,"Service stopped", Toast.LENGTH_SHORT).show();
         myTimerTask.cancel();
 
         super.onDestroy();
