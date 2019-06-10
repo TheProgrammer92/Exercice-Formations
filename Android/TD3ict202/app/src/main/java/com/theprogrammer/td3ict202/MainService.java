@@ -21,7 +21,7 @@ public class MainService extends Service {
         public void run() {
             // ...
 
-            Log.d("TimeTask Log","Salut, TheProgrammer My Time est lancé");
+            Log.d("*****************"," TimeTask Log :  Salut, TheProgrammer My Time est lancé");
         }
 
         };
@@ -34,6 +34,7 @@ public class MainService extends Service {
     public void onCreate() {
 
         timer.schedule(myTimerTask, 3000);
+        myTimerTask.run();
         Toast.makeText(this, "Service start", Toast.LENGTH_SHORT).show();
     }
 

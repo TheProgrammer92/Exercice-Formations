@@ -16,12 +16,6 @@
 
 
         </service>
-
-<<<<<<< HEAD
-
-
-=======
->>>>>>> b50fca422427ec34ab5ee7ef07e9e69bbf48df60
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
