@@ -42,13 +42,8 @@ declare
  
  actualSal float;
  sommeTotal float;
- 
- 
- 
- departementName varchar(50);
 
- 
- 
+ departementName varchar(50);
  i int;
  counter int;
 
@@ -58,7 +53,7 @@ declare
  
  firstQuart int;
  secondQuart int;
- 
+ minHightSalary int;
 
  cursor hightSalaryCursor  is select * from emp2  order by sal asc;
  ligne hightSalaryCursor%rowtype;
@@ -70,12 +65,13 @@ begin
     FOR j IN 1..20 LOOP
     
         insert into DEPT values (j , CONCAT( 'departement ',j),concat('loc ',j+1));
-        insert into emp2 values (j, 'jesbe','franc',22,SYSDATE, 5000, 22,j);
+        insert into emp2 values (j, 'jesbe','franc',22,SYSDATE, DBMS_RANDOM.VALUE(500,5000), 22,j);
      
         
      END LOOP;
+     minHightSalary := 2000;
      
-     select count(*) into nbrHightSalary from emp2 where sal >400;
+     select count(*) into nbrHightSalary from emp2 where sal >minHightSalary;
     
     
     counter :=0;
@@ -93,49 +89,24 @@ begin
           
            exit when hightSalaryCursor%NOTFOUND;
             
-           if (counter<firstQuart) then
-                 
-                 select dname into departementName from dept where deptno = ligne.deptno;
-                 actualSal := (ligne.sal*100)/4;
-                 dbms_output.put_line( 'Avant ----- nom = '|| ligne.ename || '      Departement =  ' ||ligne.deptno|| '      salaire = ' || ligne.sal);
-         
-                    update emp2 set sal = actualsal where empno = ligne.empno;
-
-                 dbms_output.put_line( 'Apres ----- nom = '|| ligne.ename || '      Departement =  '  || departementName ||   '      salaire = ' ||actualsal);
-                 dbms_output.put_line( '---------------------------------------------------');
-          
-                  sommeTotal := sommeTotal + (actualsal - ligne.sal);  
-                  --salaire qui a été augment
-
-                  counter := counter +1;
+           if (counter<firstQuart and ligne.sal >minHightSalary) then
+                 -- recuperation e la sommeTotal dans cette 
+                  sommeTotal := sommeTotal + func_refactor_show_bd(ligne.empno,ligne.deptno,4);
+               
+       
+                counter := counter +1;
               
-          elsif  (counter>firstQuart and counter <secondQuart) then
+          elsif  (counter>firstQuart and counter <secondQuart and  ligne.sal >minHightSalary) then
             
-                select dname into departementName from dept where deptno = ligne.deptno;
-                 actualSal :=  (ligne.sal*100)/6;
-                 dbms_output.put_line( 'Avant ----- nom = '|| ligne.ename || '      Departement =  ' || departementName|| '      salaire = ' || ligne.sal);
-         
-                    update emp2 set sal = actualsal where empno = ligne.empno;
-
-                 dbms_output.put_line( 'Apres ----- nom = '|| ligne.ename || '      Departement =  '  || departementName ||   '      salaire = ' ||actualsal);
-                 dbms_output.put_line( '---------------------------------------------------');
-          
-                  sommeTotal := sommeTotal + (actualsal - ligne.sal);  
-                  --salaire qui a été augment
+            
+                sommeTotal := sommeTotal +  func_refactor_show_bd(ligne.empno,ligne.deptno,6);
+               
 
                 counter := counter +1;
           else 
-                   select dname into departementName from dept where deptno = ligne.deptno;
-                 actualSal :=  (ligne.sal*100)/8;
-                 dbms_output.put_line( 'Avant ----- nom = '|| ligne.ename || '      Departement =  ' || departementName|| '      salaire = ' || ligne.sal);
-         
-                    update emp2 set sal = actualsal where empno = ligne.empno;
-
-                 dbms_output.put_line( 'Apres ----- nom = '|| ligne.ename || '      Departement =  '  || departementName ||   '      salaire = ' ||actualsal);
-                 dbms_output.put_line( '---------------------------------------------------');
-          
-                  sommeTotal := sommeTotal + (actualsal - ligne.sal);  
-                  --salaire qui a été augment
+                   sommeTotal:= sommeTotal +  func_refactor_show_bd(ligne.empno,ligne.deptno,8);
+               
+                 
 
                 counter := counter +1;
            end if;
