@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">RomeoApp</string>
+    <string name="txtStatus">Service Status</string>
+    <string name="txtResult">Last result</string>
+    <string name="txtAlert">Last alert</string>
+    <string name="response">"???"</string>
+    <string name="btnOn">On</string>
+    <string name="btnOff">Off</string>
+</resources>

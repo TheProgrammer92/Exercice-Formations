@@ -1,0 +1,31 @@
+
+La localisation est un service utilisé, dans le developpement android,
+que ce soit pour trouver un lieu, se rendre dans un lieu, ou regarder sa propre maison..
+
+On trouve deux API de liées au concep de localisation 
+    -- une API qui permet de localiser l'appareil
+    -- une API qui permet d'afficher les cartes
+
+La localisation
+
+    on trouve tous les outils de localisation dans le package "" android.location"
+
+  a: il faut demander la permission dans le manifest pour utiliser les fonctionnalité de localisation comme suit
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+  b :  Faire appel a un nouveau service systeme pour acceder a ces fonctionalités  ""LocationManager"" que nous avons recupéré ainsi
+
+    LocationManager locationManager = (LocationManager)getSystemService(Context.LOCATION_SERVICE);
+ 
+  c : Fournisseur de position
+       Nous avons eu besoin d'un fournisseur de position qui determinera la position actuelle
+       Il derive tous de la classe abstraite  """LocationProvider""
+       pour recuperer le nom de tous les fournisseur nous avons  ""List<String> getAllProviders()"
+       Pour selectionner un fournisseur a l'aide d'un critere pricis, on utilise un object de type ""Criteria""
+       Pour obtenir la liste de tous les founisseur correspondant, a ces critere on utilise
+       List<String> getProviders(Criteria criteria, boolean enabledOnly)
+  
+  d : Obtenir des notification du fournisseurµ
+      Pour obtenir la dernière position connue de l'appareil, on utilise " Location getLastKnownLocation(String provider)."
+      pour obtenir  la position actuelle de l'appareil on utilise la methode 
+      void requestLocationUpdates(String provider, long minTime, float minDistance, LocationListener listener) pour la mettre a jour..
