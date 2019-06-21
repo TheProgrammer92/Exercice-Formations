@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">ServiceX</string>
+    <string name="lblEmail">Email</string>
+    <string name="lblPassword">Password</string>
+    <string name="lblForgot">Forgot Password ?</string>
+    <string name="lblTxtDesign">Lorem Itsup TheProgrammer</string>
+</resources>
