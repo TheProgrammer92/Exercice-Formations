@@ -1,3 +1,4 @@
+Exercice 4:
 
 La localisation est un service utilisé, dans le developpement android,
 que ce soit pour trouver un lieu, se rendre dans un lieu, ou regarder sa propre maison..
@@ -29,3 +30,7 @@ La localisation
       Pour obtenir la dernière position connue de l'appareil, on utilise " Location getLastKnownLocation(String provider)."
       pour obtenir  la position actuelle de l'appareil on utilise la methode 
       void requestLocationUpdates(String provider, long minTime, float minDistance, LocationListener listener) pour la mettre a jour..
+
+
+  Exercice 3: 
+  

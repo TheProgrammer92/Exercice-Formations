@@ -2,10 +2,10 @@
 
 <resources>
 
-    <string name="app_name">TD3ict202</string>
+    <string name="app_name">The ICT202</string>
     <string name="txtStatus">Service Status</string>
     <string name="txtResult">Last result</string>
-    <string name="txtAlert">Last alert</string>
+    <string name="txtAlert">The alert</string>
     <string name="response">"???"</string>
     <string name="btnOn">On</string>
     <string name="btnOff">Off</string>
