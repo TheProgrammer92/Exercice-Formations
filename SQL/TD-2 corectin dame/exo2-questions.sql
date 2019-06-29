@@ -6,7 +6,7 @@ begin
     from Styliste,Costume 
     where Styliste.NumStyliste=Costume.NumStyliste;
 end $$
-delimiter ;
+delimiter;
  
 delimiter $$
 drop procedure if exists ps2 $$
