@@ -44,6 +44,7 @@ public class MainActivity extends AppCompatActivity  {
 
         intent = new Intent(MainActivity.this,LayoutActivity.class);
 
+        Toast.makeText(this,"bonjour",Toast.LENGTH_LONG).show();
     }
 
     private View.OnClickListener listenerClick = new View.OnClickListener() {
